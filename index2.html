@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Rocket Cost Analyzer</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Courier New', Courier, monospace;
+}
+
+body{
+    background:#000;
+    color:#55edf5;
+    padding:30px;
+    margin:0;
+    min-height:100vh;
+    position:relative;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+        radial-gradient(2px 2px at 12% 18%, #fff, transparent),
+        radial-gradient(2.5px 1.5px at 28% 72%, #ddd, transparent),
+        radial-gradient(3px 2px at 42% 35%, #fff, transparent),
+        radial-gradient(2px 2px at 32% 55%, #fff, transparent),
+        radial-gradient(2px 2px at 47% 65%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 58% 82%, #ccc, transparent),
+        radial-gradient(2px 2px at 73% 22%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 88% 68%, #eee, transparent),
+        radial-gradient(2px 2px at 95% 12%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 8% 88%, #ddd, transparent),
+        radial-gradient(2px 2px at 35% 55%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 65% 48%, #ccc, transparent);
+    animation:twinkle 4s ease-in-out infinite alternate;
+    pointer-events:none;
+    z-index:0;
+}
+
+@keyframes twinkle{
+    from{opacity:.6;}
+    to{opacity:1;}
+}
+
+h1{
+    text-align:center;
+    color:#67e8f9;
+    margin-bottom:8px;
+    font-size:60px;
+    position:relative;
+    z-index:1;
+}
+
+.subtitle{
+    text-align:center;
+    color:#9fb3c8;
+    margin-bottom:30px;
+    position:relative;
+    z-index:1;
+}
+
+.container{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
+    text-align:center;
+    position:relative;
+    z-index:1;
+}
+
+@media(max-width:1200px){
+    .container{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:700px){
+    .container{
+        grid-template-columns:1fr;
+    }
+}
+
+.card{
+    background:#111827;
+    border:1px solid #223047;
+    border-radius:18px;
+    overflow:hidden;
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 18px rgba(103,232,249,.25);
+}
+
+.image{
+    height:170px;
+    background:#1f2937;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.info{
+    padding:18px;
+}
+
+.info h2{
+    color:#55edf5;
+    font-size:22px;
+    margin-bottom:10px;
+}
+
+.info p{
+    color:#cbd5e1;
+    font-size:14px;
+    line-height:1.5;
+    margin-bottom:15px;
+}
+
+.cost{
+    color:#25b359;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.btn{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    width:65px;
+    height:65px;
+    border:2px solid #000;
+    border-radius:50%;
+    background:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    z-index: 10;
+}
+
+.btn a{
+    text-decoration:none;
+    color:#000;
+    font-size:28px;
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+<h1>AI Rocket Parts Overview</h1>
+<p class="subtitle">Parts of rockets essential for flight</p>
+
+<div class="container">
+
+    <div class="card">
+        <div class="image">
+            <img src="https://media.sciencephoto.com/image/c0570038/800wm/C0570038-Artemis_I_rocket_payload,_illustration.jpg" alt="Payload">
+        </div>
+        <div class="info">
+            <h2>Payload</h2>
+            <p>Satellite or scientific equipment carried into orbit.</p>
+            <div class="cost" data-cost="12000000">approx. ₹1,20,00,000</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="image">
+            <img src="https://static.righto.com/images/minuteman-mmiii/guidance-labeled.jpg" alt="Guidance System">
+        </div>
+        <div class="info">
+            <h2>Guidance System</h2>
+            <p>IMU, GPS and onboard flight computer for navigation.</p>
+            <div class="cost" data-cost="4500000">approx. ₹45,00,000</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="image">
+            <img src="https://media.sketchfab.com/models/edeb89214f7c4b9db9af2deb2a0aa477/thumbnails/35c6520fd8404a87bafdd8548af548e2/792be3a70bf24e48b6d8e701e155a290.jpeg" alt="Fuel Tank">
+        </div>
+        <div class="info">
+            <h2>Fuel Tank</h2>
+            <p>Cryogenic storage tank for liquid fuel and oxidizer.</p>
+            <div class="cost" data-cost="8000000">approx. ₹80,00,000</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="image">
+            <img src="https://png.pngtree.com/thumb_back/fw800/background/20250226/pngtree-3d-rendering-of-a-detailed-rocket-engine-against-dark-background-image_16982206.jpg" alt="Rocket Engine">
+        </div>
+        <div class="info">
+            <h2>Rocket Engine</h2>
+            <p>Main propulsion system generating thrust.</p>
+            <div class="cost" data-cost="25000000">approx. ₹2,50,00,000</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmChNGrygMrS_RvVy8I1BDZKjcWzwSE18PKEhwUMUDEQ&s=10" alt="Nozzle" height="170px" width="230px">
+        </div>
+        <div class="info">
+            <h2>Nozzle</h2>
+            <p>Expands exhaust gases to maximize thrust efficiency.</p>
+            <div class="cost" data-cost="3500000">approx. ₹35,00,000</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZYdpKY12draXaSE-_jXzjZ3GtFGieDO4maaY4Vo2poA&s=10" alt="Motor Casing">
+        </div>
+        <div class="info">
+            <h2>Motor Casing</h2>
+            <p>High-strength outer shell that contains the propellant under extreme pressure.</p>
+            <div class="cost" data-cost="6000000">approx. ₹60,00,000</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRko5VOCiVcqCP0-v4N59WapW991_7tanFvqGZM-sPUKg&s=10" alt="Thermal Insulation">
+        </div>
+        <div class="info">
+            <h2>Thermal Insulation</h2>
+            <p>Heat-resistant layer protecting the rocket structure during launch and flight.</p>
+            <div class="cost" data-cost="2500000">approx. ₹25,00,000</div>
+        </div>
+    </div>
+
+</div>
+
+<div class="btn">
+    <a href="good.html">🏠︎</a>
+</div>
+
+</body>
+</html>

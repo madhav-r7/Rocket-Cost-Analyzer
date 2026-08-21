@@ -1,0 +1,231 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Space Background with Stars */
+
+body{
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,0.9) 1.5px, transparent 2px),
+        radial-gradient(circle at 80% 25%, rgba(255,255,255,0.7) 1px, transparent 1.8px),
+        radial-gradient(circle at 30% 70%, rgba(255,255,255,0.8) 1.2px, transparent 2px),
+        radial-gradient(circle at 65% 80%, rgba(255,255,255,0.6) 1.5px, transparent 2px),
+        radial-gradient(circle at 90% 60%, rgba(255,255,255,0.8) 1px, transparent 2px),
+        linear-gradient(180deg, #334155 0%, #475569 45%, #64748B 100%);
+
+    background-size: 280px 280px, 350px 350px, 420px 420px,
+                     500px 500px, 600px 600px, 100% 100%;
+    color: white;
+}
+.shooting-star{
+    position:absolute;
+    width:160px;
+    height:2px;
+    background:linear-gradient(90deg,#fff,transparent);
+    border-radius:50%;
+    opacity:0;
+    transform:rotate(-35deg);
+    animation:shoot 4s linear infinite;
+}
+
+.shooting-star:nth-child(1){
+    top:10%;
+    left:70%;
+    animation-delay:0s;
+}
+
+.shooting-star:nth-child(2){
+    top:25%;
+    left:90%;
+    animation-delay:1.2s;
+}
+
+.shooting-star:nth-child(3){
+    top:45%;
+    left:80%;
+    animation-delay:2.4s;
+}
+
+.shooting-star:nth-child(4){
+    top:5%;
+    left:50%;
+    animation-delay:3.3s;
+}
+
+@keyframes shoot{
+    0%{
+        transform:translate(0,0) rotate(-35deg);
+        opacity:0;
+    }
+    10%{opacity:1;}
+    100%{
+        transform:translate(-700px,450px) rotate(-35deg);
+        opacity:0;
+    }
+}
+
+
+/* HERO */
+
+.hero{
+    height:100vh;
+    position:relative;
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        rgba(0,0,0,.25),
+        rgba(0,0,0,.45)
+    );
+}
+
+/* NAVBAR */
+
+header{
+    position:absolute;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    padding-top:20px;
+    z-index:5;
+}
+
+nav{
+    display:flex;
+    gap:45px;
+    padding:18px 45px;
+
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.35);
+    border-radius:18px;
+    position: fixed;
+    transform:translateY(-8px);
+    word-spacing: 5px;
+}
+
+nav a{
+    color:rgb(73, 238, 244);
+    text-decoration:none;
+    font-size:18px;
+    font-weight:400;
+    transition:.4s;
+}
+
+nav a:hover{
+    color:#EEF2F7;
+}
+
+/* TITLE */
+
+.content{
+    position:absolute;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.content h1{
+    font-size:11vw;
+    font-weight:800;
+    color:#67cdde;
+    letter-spacing:2px;
+    
+}
+.card{
+    width:260px;
+    padding:28px;
+    text-align:center;
+    margin-top: 30px;
+    margin-left: 620px;
+    margin-bottom: 100px;
+
+    background:white;
+    border:1px solid #29b6f6;
+    border-radius:24px;
+
+    transition:.35s;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.card:hover{
+    transform: rotateY(15deg); 
+}
+.card h3{
+    color:#0095d9;
+    margin-bottom:10px;
+    font-size:28px;
+}
+.card p{
+    color:#0095d9;
+    font-size:20px;
+    line-height:1.5;
+}
+
+@media(max-width:768px)
+
+
+
+nav a{
+    font-size:15px;
+    
+}
+
+nav a:hover{
+    font-size:15px;
+    color: #fdfbfb;
+
+}
+
+.content h1{
+    font-size:20vw;
+}
+h1:hover{
+    color: #8ffcff;
+}
+/* Matching Astrex Button */
+
+.btn{
+    display:inline-block;
+    padding:12px 28px;
+    margin-top: 10px;
+    background:#ffffff;
+    color:#00A8E8;
+
+    border:2px solid #00B8F0;
+    border-radius:16px;
+
+    font-size:17px;
+    font-weight:600;
+    text-decoration:none;
+
+    cursor:pointer;
+    transition:all 0.3s ease;
+
+    box-shadow:0 6px 18px rgba(0,184,240,0.18);
+}
+
+.btn:hover{
+    background:#00B8F0;
+    color:#ffffff;
+    transform:translateY(-3px);
+    box-shadow:0 12px 28px rgba(0,184,240,0.35);
+}
+
+h2{
+    font-size: 50px;
+}
+
+footer{
+    text-align: center;
+}
